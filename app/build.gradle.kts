@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.gearup"
-    compileSdk = 36
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.example.gearup"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -47,15 +47,15 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     
     // Fragment support
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+    implementation("androidx.fragment:fragment-ktx:1.6.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
     
     // WorkManager for notifications
     implementation("androidx.work:work-runtime-ktx:2.8.1")
     
     // RecyclerView for lists
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
     
     // Gson for JSON serialization
     implementation("com.google.code.gson:gson:2.10.1")

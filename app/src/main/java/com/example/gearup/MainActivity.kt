@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
         // Handle notification actions
         handleNotificationActions()
 
+        // Handle deep links
+        handleDeepLinks()
+
         // Show default fragment
         if (savedInstanceState == null) {
             val openHabits = intent.getBooleanExtra("open_habits", false)
@@ -113,6 +116,29 @@ class MainActivity : AppCompatActivity() {
             // Open habits fragment
             replaceFragment(HabitsFragment())
             binding.bottomNavigation.selectedItemId = R.id.nav_habits
+        }
+    }
+
+    private fun handleDeepLinks() {
+        val data = intent.data
+        if (data != null && data.scheme == "gearup" && data.host == "open") {
+            when (data.getQueryParameter("section")) {
+                "habits" -> {
+                    replaceFragment(HabitsFragment())
+                    binding.bottomNavigation.selectedItemId = R.id.nav_habits
+                    binding.toolbar.title = getString(R.string.nav_habits)
+                }
+                "mood" -> {
+                    replaceFragment(MoodFragment())
+                    binding.bottomNavigation.selectedItemId = R.id.nav_mood
+                    binding.toolbar.title = getString(R.string.nav_mood)
+                }
+                "settings" -> {
+                    replaceFragment(SettingsFragment())
+                    binding.bottomNavigation.selectedItemId = R.id.nav_settings
+                    binding.toolbar.title = getString(R.string.nav_settings)
+                }
+            }
         }
     }
 
