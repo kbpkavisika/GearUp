@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_large">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Left Panel - Form Fields -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/add_habit"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/text_size_xxlarge"
+                android:textStyle="bold" />
+
+            <!-- Habit Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_habit_name"
+                style="@style/GearUp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:hint="@string/habit_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_habit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Target Value and Unit in one row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_target_value"
+                    style="@style/GearUp.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:hint="@string/habit_target">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_target_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_unit"
+                    style="@style/GearUp.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:hint="Unit">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_unit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!-- Habit Description -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_habit_description"
+                style="@style/GearUp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:hint="Description (optional)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_habit_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!-- Right Panel - Icon Selection and Actions -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:orientation="vertical">
+
+            <!-- Icon Selection -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:text="Choose an icon:"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/text_size_large" />
+
+            <GridLayout
+                android:id="@+id/icon_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:columnCount="3"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_icon_water"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="💧"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/btn_icon_exercise"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="🏃"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/btn_icon_meditation"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="🧘"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/btn_icon_book"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="📚"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/btn_icon_sleep"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="😴"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/btn_icon_strength"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_columnWeight="1"
+                    android:text="💪"
+                    android:textSize="24sp" />
+
+            </GridLayout>
+
+            <!-- Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cancel"
+                    style="@style/GearUp.Button.Outlined"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:text="@string/cancel" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save"
+                    style="@style/GearUp.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:text="@string/save" />
+
+            </LinearLayout>
+
+            <!-- Delete Button (only for edit mode) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_delete"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/delete_habit"
+                android:textColor="@color/error"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
