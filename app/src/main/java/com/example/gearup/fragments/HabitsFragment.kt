@@ -1,6 +1,7 @@
 package com.example.gearup.fragments
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -64,6 +65,11 @@ class HabitsFragment : Fragment() {
         // Setup FAB
         binding.fabAddHabit.setOnClickListener {
             showAddEditDialog()
+        }
+
+        // Setup share button
+        binding.btnShareProgress.setOnClickListener {
+            shareHabitProgress()
         }
     }
 
@@ -329,6 +335,53 @@ class HabitsFragment : Fragment() {
     private fun getCurrentTimestamp(): String {
         val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
         return formatter.format(Date())
+    }
+
+    private fun shareHabitProgress() {
+        if (habits.isEmpty()) {
+            Toast.makeText(context, "No habits to share", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val today = Habit.getTodayKey()
+        val dateFormatted = SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault()).format(Date())
+        
+        val shareText = buildString {
+            appendLine("📈 My GearUp Progress - $dateFormatted")
+            appendLine("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+            appendLine()
+            
+            var totalCompleted = 0
+            var totalHabits = habits.size
+            
+            habits.forEach { habit ->
+                val progress = habitProgress[habit.id]
+                val currentValue = progress?.currentValue ?: 0
+                val targetValue = habit.targetValue
+                val percentage = if (targetValue > 0) (currentValue * 100 / targetValue).coerceAtMost(100) else 0
+                
+                appendLine("${habit.icon} ${habit.name}")
+                appendLine("   Progress: $currentValue/${targetValue} ${habit.unit} (${percentage}%)")
+                
+                if (percentage >= 100) totalCompleted++
+                appendLine()
+            }
+            
+            val overallPercentage = if (totalHabits > 0) (totalCompleted * 100 / totalHabits) else 0
+            appendLine("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+            appendLine("🎯 Overall: $totalCompleted/$totalHabits habits completed ($overallPercentage%)")
+            appendLine()
+            appendLine("Shared from GearUp - Your Wellness Companion 🌱")
+        }
+
+        val shareIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, shareText)
+            putExtra(Intent.EXTRA_SUBJECT, "My Daily Progress from GearUp")
+        }
+
+        startActivity(Intent.createChooser(shareIntent, "Share progress via"))
     }
 
     override fun onDestroyView() {

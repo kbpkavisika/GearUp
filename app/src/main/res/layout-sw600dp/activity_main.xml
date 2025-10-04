@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pure_white"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <!-- Side Navigation for Tablets -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/side_navigation"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:background="@color/background_light"
+        app:headerLayout="@layout/nav_header"
+        app:itemIconTint="@color/primary_green"
+        app:itemTextColor="@color/pure_black"
+        app:menu="@menu/side_navigation_menu" />
+
+    <!-- Main Content Area -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- App Bar -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_green">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/primary_green"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/pure_black" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Fragment Container -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,9 +1,68 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.GearUp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorPrimaryVariant">@color/primary_green_dark</item>
+        <item name="colorOnPrimary">@color/pure_black</item>
+        
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/primary_green_light</item>
+        <item name="colorSecondaryVariant">@color/primary_green</item>
+        <item name="colorOnSecondary">@color/pure_black</item>
+        
+        <!-- Background Colors -->
+        <item name="android:colorBackground">@color/pure_white</item>
+        <item name="colorSurface">@color/background_light</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/primary_green_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        <!-- Navigation Bar -->
+        <item name="android:navigationBarColor">@color/pure_white</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 
     <style name="Theme.GearUp" parent="Base.Theme.GearUp" />
+    
+    <!-- Button Styles -->
+    <style name="GearUp.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/primary_green</item>
+        <item name="android:textColor">@color/pure_black</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+    
+    <style name="GearUp.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/primary_green</item>
+        <item name="android:textColor">@color/primary_green</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+    
+    <!-- Card Styles -->
+    <style name="GearUp.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/pure_white</item>
+    </style>
+    
+    <style name="GearUp.Card.Primary" parent="GearUp.Card">
+        <item name="cardBackgroundColor">@color/primary_green</item>
+    </style>
+    
+    <!-- Text Field Styles -->
+    <style name="GearUp.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/primary_green</item>
+        <item name="hintTextColor">@color/primary_green</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+    </style>
+    
+    <!-- Toolbar Styles -->
+    <style name="GearUp.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/primary_green</item>
+        <item name="titleTextColor">@color/pure_black</item>
+        <item name="subtitleTextColor">@color/pure_black</item>
+    </style>
 </resources>
