@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:padding="16dp">
+
+    <!-- App Icon -->
+    <ImageView
+        android:id="@+id/widget_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_habits" />
+
+    <!-- App Name -->
+    <TextView
+        android:id="@+id/widget_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/widget_icon"
+        android:text="@string/app_name"
+        android:textColor="@color/pure_black"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/widget_app_name"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/widget_icon"
+        android:text="@string/widget_title"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <!-- Progress Circle Container -->
+    <RelativeLayout
+        android:id="@+id/progress_container"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/widget_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp">
+
+        <!-- Progress Background Circle -->
+        <View
+            android:id="@+id/progress_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/progress_circle_background" />
+
+        <!-- Progress Foreground Circle -->
+        <View
+            android:id="@+id/progress_foreground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/progress_circle_foreground" />
+
+        <!-- Percentage Text -->
+        <TextView
+            android:id="@+id/widget_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="75%"
+            android:textColor="@color/pure_black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!-- Habits Status -->
+    <TextView
+        android:id="@+id/widget_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progress_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="3 of 5 habits completed"
+        android:textColor="@color/text_primary"
+        android:textSize="12sp" />
+
+    <!-- Last Updated -->
+    <TextView
+        android:id="@+id/widget_last_updated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Updated 2:30 PM"
+        android:textColor="@color/text_secondary"
+        android:textSize="10sp" />
+
+</RelativeLayout>
