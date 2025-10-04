@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_large">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Left Panel - Progress Info and Visualization -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_habit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/text_size_xxlarge"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_current_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/text_size_medium" />
+
+            <!-- Large Progress Visualization -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/GearUp.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_large"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_current_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:textSize="48sp"
+                        android:textStyle="bold" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:progressTint="?attr/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tv_progress_percentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="@dimen/text_size_xlarge" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Right Panel - Input and Actions -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/margin_large"
+            android:orientation="vertical">
+
+            <!-- Progress Input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_progress_value"
+                style="@style/GearUp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:hint="Add progress">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_progress_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:textSize="@dimen/text_size_large" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Quick Add Buttons -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="Quick add:"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/text_size_large" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:columnCount="3"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_quick_1"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="+1"
+                    android:textSize="@dimen/text_size_large" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_quick_5"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="+5"
+                    android:textSize="@dimen/text_size_large" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_quick_10"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="+10"
+                    android:textSize="@dimen/text_size_large" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_quick_25"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="+25"
+                    android:textSize="@dimen/text_size_large" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_quick_50"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="+50"
+                    android:textSize="@dimen/text_size_large" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_quick_100"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="+100"
+                    android:textSize="@dimen/text_size_large" />
+
+            </GridLayout>
+
+            <!-- Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cancel"
+                    style="@style/GearUp.Button.Outlined"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height_large"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_weight="1"
+                    android:text="@string/cancel"
+                    android:textSize="@dimen/text_size_large" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save"
+                    style="@style/GearUp.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height_large"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_weight="1"
+                    android:text="@string/add"
+                    android:textSize="@dimen/text_size_large" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
