@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -42,6 +45,21 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    
+    // Fragment support
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+    
+    // WorkManager for notifications
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
+    
+    // RecyclerView for lists
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    
+    // Gson for JSON serialization
+    implementation("com.google.code.gson:gson:2.10.1")
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
