@@ -2,4 +2,30 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- GearUp Color Palette -->
+    <!-- Primary color (60%) - Bright Green -->
+    <color name="primary_green">#8EFF00</color>
+    
+    <!-- Secondary colors -->
+    <color name="pure_white">#FFFFFF</color>
+    <color name="pure_black">#000000</color>
+    
+    <!-- Variations for better UI -->
+    <color name="primary_green_dark">#7DE600</color>
+    <color name="primary_green_light">#A1FF33</color>
+    
+    <!-- Background colors -->
+    <color name="background_light">#F8F8F8</color>
+    <color name="background_dark">#1A1A1A</color>
+    
+    <!-- Text colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_on_primary">#000000</color>
+    
+    <!-- Status colors -->
+    <color name="success">#8EFF00</color>
+    <color name="error">#FF3B30</color>
+    <color name="warning">#FF9500</color>
 </resources>
